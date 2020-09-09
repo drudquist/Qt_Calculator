@@ -7,7 +7,7 @@ namespace {
 
 bool divTriggered{false};
 bool multiTriggered{false};
-bool addTrigggered{false};
+bool addTriggered{false};
 bool subTriggered{false};
 
 constexpr int numOfNumberButtons{10};
@@ -58,6 +58,8 @@ void Calculator::ConnectButtons()
 {
     ConnectNumberButtons();
     ConnectOperatorButtons();
+
+    connect(ui->Equal, SIGNAL(clicked()), this, SLOT(EqualButtonPressed()));
 }
 
 void Calculator::NumPressed()
@@ -92,7 +94,7 @@ void Calculator::OperatorButtonPressed()
    }
    else if(button == ui->Add)
    {
-       addTrigggered = true;
+       addTriggered = true;
    }
    else if(button == ui->Subtract)
    {
@@ -108,4 +110,63 @@ void Calculator::OperatorButtonPressed()
    calcVal = displayVal.toDouble();
 
    ui->Display->setText("");
+}
+
+bool Calculator::OperatorTriggered()
+{
+    return divTriggered || multiTriggered || addTriggered || subTriggered;
+}
+
+void Calculator::EqualButtonPressed()
+{
+    const QPushButton* const button = static_cast<const QPushButton*>(sender());
+
+    if(button == ui->Equal)
+    {
+        const QString displayVal = ui->Display->text();
+        const double dblDisplayVal = displayVal.toDouble();
+
+        if(OperatorTriggered())
+        {
+            if(divTriggered)
+            {
+                if(dblDisplayVal == 0.0)
+                {
+                    //set display to previous calculated value
+                    QMessageBox::warning(this, "Warning", "Cannot divide by zero");
+                    ui->Display->setText(QString::number(calcVal));
+                    return;
+                }
+                else
+                {
+                    calcVal /= dblDisplayVal;
+                }
+            }
+            else if(multiTriggered)
+            {
+                calcVal *= dblDisplayVal;
+            }
+            else if(addTriggered)
+            {
+                calcVal += dblDisplayVal;
+            }
+            else
+            {
+                calcVal -= dblDisplayVal;
+            }
+
+            ui->Display->setText(QString::number(calcVal));
+            calcVal = 0.0;
+        }
+        else
+        {
+            QMessageBox::warning(this, "Warning", "Cannot calculate new value without an operator");
+        }
+
+    }
+    else
+    {
+        QMessageBox::warning(this, "Warning", "Button: " + button->text() + " is not the equals button.");
+        return;
+    }
 }

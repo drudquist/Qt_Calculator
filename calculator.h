@@ -18,6 +18,8 @@ public:
 private:
     Ui::Calculator *ui;
 
+    bool OperatorTriggered();
+
     void ConnectOperatorButtons();
     void ConnectNumberButtons();
     void ConnectButtons();
@@ -25,7 +27,7 @@ private:
 private slots:
     void NumPressed();
     void OperatorButtonPressed();
-    //void EqualButtonPressed();
+    void EqualButtonPressed();
     //void ChangeSignButtonPressed();
 };
 #endif // CALCULATOR_H
