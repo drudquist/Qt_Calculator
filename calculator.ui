@@ -39,7 +39,7 @@
       </widget>
      </item>
      <item row="4" column="0">
-      <widget class="QPushButton" name="ButtonClear">
+      <widget class="QPushButton" name="Clear">
        <property name="text">
         <string>AC</string>
        </property>

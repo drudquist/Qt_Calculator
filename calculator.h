@@ -29,5 +29,6 @@ private slots:
     void OperatorButtonPressed();
     void EqualButtonPressed();
     void ChangeSignButtonPressed();
+    void ClearButtonPressed();
 };
 #endif // CALCULATOR_H

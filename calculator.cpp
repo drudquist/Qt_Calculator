@@ -61,6 +61,7 @@ void Calculator::ConnectButtons()
 
     connect(ui->Equal, SIGNAL(clicked()), this, SLOT(EqualButtonPressed()));
     connect(ui->ChangeSign, SIGNAL(clicked()), this, SLOT(ChangeSignButtonPressed()));
+    connect(ui->Clear, SIGNAL(clicked()), this, SLOT(ClearButtonPressed()));
 }
 
 void Calculator::NumPressed()
@@ -182,5 +183,16 @@ void Calculator::ChangeSignButtonPressed()
         double dblDisplayVal = displayVal.toDouble();
         dblDisplayVal *= -1;
         ui->Display->setText(QString::number(dblDisplayVal));
+    }
+}
+
+void Calculator::ClearButtonPressed()
+{
+    const QPushButton* const button = static_cast<const QPushButton*>(sender());
+
+    if(button == ui->Clear)
+    {
+        calcVal = 0.0;
+        ui->Display->setText(QString::number(calcVal));
     }
 }
