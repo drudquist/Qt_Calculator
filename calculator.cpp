@@ -80,10 +80,7 @@ void Calculator::NumPressed()
 
 void Calculator::OperatorButtonPressed()
 {
-    const QString displayVal(ui->Display->text());
-    calcVal = displayVal.toDouble();
-
-    const QPushButton* const button = static_cast<const QPushButton*>(sender());
+   const QPushButton* const button = static_cast<const QPushButton*>(sender());
 
    if(button == ui->Divide)
    {
@@ -106,6 +103,9 @@ void Calculator::OperatorButtonPressed()
        QMessageBox::warning(this, "Warning", "Button: " + button->text() + " is not a valid operator.");
        return;
    }
+
+   const QString displayVal(ui->Display->text());
+   calcVal = displayVal.toDouble();
 
    ui->Display->setText("");
 }
