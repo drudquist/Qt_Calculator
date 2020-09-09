@@ -25,147 +25,147 @@
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="2" column="0">
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="Button4">
        <property name="text">
-        <string>PushButton</string>
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="Button1">
        <property name="text">
-        <string>PushButton</string>
+        <string>1</string>
        </property>
       </widget>
      </item>
      <item row="4" column="0">
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="ButtonClear">
        <property name="text">
-        <string>PushButton</string>
+        <string>AC</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="Button8">
        <property name="text">
-        <string>PushButton</string>
+        <string>8</string>
        </property>
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="Button9">
        <property name="text">
-        <string>PushButton</string>
+        <string>9</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="Button7">
        <property name="text">
-        <string>PushButton</string>
+        <string>7</string>
        </property>
       </widget>
      </item>
      <item row="1" column="3">
-      <widget class="QPushButton" name="pushButton_7">
+      <widget class="QPushButton" name="Divide">
        <property name="text">
-        <string>PushButton</string>
+        <string>/</string>
        </property>
       </widget>
      </item>
      <item row="1" column="4">
-      <widget class="QPushButton" name="pushButton_8">
+      <widget class="QPushButton" name="MemAdd">
        <property name="text">
-        <string>PushButton</string>
+        <string>M+</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="Button5">
        <property name="text">
-        <string>PushButton</string>
+        <string>5</string>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QPushButton" name="pushButton_10">
+      <widget class="QPushButton" name="Button2">
        <property name="text">
-        <string>PushButton</string>
+        <string>2</string>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QPushButton" name="pushButton_11">
+      <widget class="QPushButton" name="Button0">
        <property name="text">
-        <string>PushButton</string>
+        <string>0</string>
        </property>
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QPushButton" name="pushButton_12">
+      <widget class="QPushButton" name="Button6">
        <property name="text">
-        <string>PushButton</string>
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="3" column="2">
-      <widget class="QPushButton" name="pushButton_13">
+      <widget class="QPushButton" name="Button3">
        <property name="text">
-        <string>PushButton</string>
+        <string>3</string>
        </property>
       </widget>
      </item>
      <item row="4" column="2">
-      <widget class="QPushButton" name="pushButton_14">
+      <widget class="QPushButton" name="ChangeSign">
        <property name="text">
-        <string>PushButton</string>
+        <string>+/-</string>
        </property>
       </widget>
      </item>
      <item row="2" column="3">
-      <widget class="QPushButton" name="pushButton_15">
+      <widget class="QPushButton" name="Multiply">
        <property name="text">
-        <string>PushButton</string>
+        <string>*</string>
        </property>
       </widget>
      </item>
      <item row="3" column="3">
-      <widget class="QPushButton" name="pushButton_16">
+      <widget class="QPushButton" name="Add">
        <property name="text">
-        <string>PushButton</string>
+        <string>+</string>
        </property>
       </widget>
      </item>
      <item row="4" column="3">
-      <widget class="QPushButton" name="pushButton_17">
+      <widget class="QPushButton" name="Subtract">
        <property name="text">
-        <string>PushButton</string>
+        <string>-</string>
        </property>
       </widget>
      </item>
      <item row="2" column="4">
-      <widget class="QPushButton" name="pushButton_18">
+      <widget class="QPushButton" name="MemClear">
        <property name="text">
-        <string>PushButton</string>
+        <string>M-</string>
        </property>
       </widget>
      </item>
      <item row="3" column="4">
-      <widget class="QPushButton" name="pushButton_19">
+      <widget class="QPushButton" name="MemGet">
        <property name="text">
-        <string>PushButton</string>
+        <string>M</string>
        </property>
       </widget>
      </item>
      <item row="4" column="4">
-      <widget class="QPushButton" name="pushButton_20">
+      <widget class="QPushButton" name="Equal">
        <property name="text">
-        <string>PushButton</string>
+        <string>=</string>
        </property>
       </widget>
      </item>
      <item row="0" column="0" colspan="5">
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="Display">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
          <horstretch>0</horstretch>
