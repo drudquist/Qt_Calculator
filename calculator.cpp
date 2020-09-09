@@ -111,7 +111,7 @@ void Calculator::OperatorButtonPressed()
    const QString displayVal(ui->Display->text());
    calcVal = displayVal.toDouble();
 
-   ui->Display->setText("");
+   ui->Display->setText("0");
 }
 
 bool Calculator::OperatorTriggered()
