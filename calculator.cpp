@@ -1,6 +1,8 @@
 #include "calculator.h"
 #include "ui_calculator.h"
 
+#include <QMessageBox>
+
 namespace {
 
 bool divTriggered{false};
@@ -23,6 +25,27 @@ Calculator::Calculator(QWidget *parent)
 
     ui->Display->setText(QString::number(calcVal));
 
+    ConnectButtons();
+}
+
+Calculator::~Calculator()
+{
+    delete ui;
+}
+
+void Calculator::ConnectOperatorButtons()
+{
+    const auto signal = SIGNAL(clicked());
+    const auto slot = SLOT(OperatorButtonPressed());
+
+    connect(ui->Divide, signal, this, slot);
+    connect(ui->Multiply, signal, this, slot);
+    connect(ui->Add, signal, this, slot);
+    connect(ui->Subtract, signal, this, slot);
+}
+
+void Calculator::ConnectNumberButtons()
+{
     for( int i = 0; i < numOfNumberButtons; ++i)
     {
         QString buttonName = QString("Button") + QString::number(i);
@@ -31,9 +54,10 @@ Calculator::Calculator(QWidget *parent)
     }
 }
 
-Calculator::~Calculator()
+void Calculator::ConnectButtons()
 {
-    delete ui;
+    ConnectNumberButtons();
+    ConnectOperatorButtons();
 }
 
 void Calculator::NumPressed()
@@ -54,3 +78,34 @@ void Calculator::NumPressed()
     }
 }
 
+void Calculator::OperatorButtonPressed()
+{
+    const QString displayVal(ui->Display->text());
+    calcVal = displayVal.toDouble();
+
+    const QPushButton* const button = static_cast<const QPushButton*>(sender());
+
+   if(button == ui->Divide)
+   {
+       divTriggered = true;
+   }
+   else if(button == ui->Multiply)
+   {
+       multiTriggered = true;
+   }
+   else if(button == ui->Add)
+   {
+       addTrigggered = true;
+   }
+   else if(button == ui->Subtract)
+   {
+       subTriggered = true;
+   }
+   else
+   {
+       QMessageBox::warning(this, "Warning", "Button: " + button->text() + " is not a valid operator.");
+       return;
+   }
+
+   ui->Display->setText("");
+}

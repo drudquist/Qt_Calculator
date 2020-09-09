@@ -18,9 +18,13 @@ public:
 private:
     Ui::Calculator *ui;
 
+    void ConnectOperatorButtons();
+    void ConnectNumberButtons();
+    void ConnectButtons();
+
 private slots:
     void NumPressed();
-    //void MathButtonPressed();
+    void OperatorButtonPressed();
     //void EqualButtonPressed();
     //void ChangeSignButtonPressed();
 };
