@@ -38,6 +38,19 @@ Calculator::~Calculator()
 
 void Calculator::NumPressed()
 {
-    auto breakpoint = 0;
+    const QPushButton* const button = static_cast<const QPushButton*>(sender());
+    const QString buttonVal = button->text();
+    const QString displayVal = ui->Display->text();
+
+    if(displayVal.toDouble() == 0 ||  displayVal.toDouble() ==  0.0)
+    {
+        ui->Display->setText(buttonVal);
+    }
+    else
+    {
+        const QString newVal(displayVal + buttonVal);
+        const double dblNewVal{newVal.toDouble()};
+        ui->Display->setText(QString::number(dblNewVal, 'g', 16));
+    }
 }
 
