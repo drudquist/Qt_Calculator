@@ -32,6 +32,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>4</string>
        </property>
@@ -44,6 +67,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>1</string>
@@ -58,6 +104,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #FF8C00;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>AC</string>
        </property>
@@ -70,6 +139,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>8</string>
@@ -84,6 +176,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>9</string>
        </property>
@@ -96,6 +211,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>7</string>
@@ -110,6 +248,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #FF8C00;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>/</string>
        </property>
@@ -122,6 +283,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #FF8C00;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>M+</string>
@@ -136,6 +320,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>5</string>
        </property>
@@ -148,6 +355,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>2</string>
@@ -162,6 +392,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>0</string>
        </property>
@@ -174,6 +427,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>6</string>
@@ -188,6 +464,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #C0C0C0;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>3</string>
        </property>
@@ -200,6 +499,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #FF8C00;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>+/-</string>
@@ -214,6 +536,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #FF8C00;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>*</string>
        </property>
@@ -226,6 +571,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #FF8C00;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>+</string>
@@ -240,6 +608,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #FF8C00;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>-</string>
        </property>
@@ -252,6 +643,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #FF8C00;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>M-</string>
@@ -266,6 +680,29 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #FF8C00;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
+       </property>
        <property name="text">
         <string>M</string>
        </property>
@@ -278,6 +715,29 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #AFEEEE;
+	border: 1px solid gray;
+	padding: 5x;
+	color: black;
+}
+
+QPushButton:pressed{
+	background-color: #A9A9A9;
+	border: 1px solid gray;
+	padding: 5x;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>=</string>
@@ -299,6 +759,13 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+	background-color: gray;
+	padding: 5px;
+	color: white;
+}</string>
        </property>
        <property name="text">
         <string>0</string>
