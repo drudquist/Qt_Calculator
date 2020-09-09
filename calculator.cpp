@@ -13,6 +13,7 @@ bool subTriggered{false};
 constexpr int numOfNumberButtons{10};
 
 double calcVal{0.0};
+double memVal{0.0};
 
 QPushButton* numButtons[numOfNumberButtons];
 }
@@ -62,6 +63,10 @@ void Calculator::ConnectButtons()
     connect(ui->Equal, SIGNAL(clicked()), this, SLOT(EqualButtonPressed()));
     connect(ui->ChangeSign, SIGNAL(clicked()), this, SLOT(ChangeSignButtonPressed()));
     connect(ui->Clear, SIGNAL(clicked()), this, SLOT(ClearButtonPressed()));
+
+    connect(ui->MemAdd, SIGNAL(clicked()), this, SLOT(MemoryAddButtonPressed()));
+    connect(ui->MemClear, SIGNAL(clicked()), this, SLOT(MemoryClearButtonPressed()));
+    connect(ui->MemGet, SIGNAL(clicked()), this, SLOT(MemoryGetButtonPressed()));
 }
 
 void Calculator::NumPressed()
@@ -195,4 +200,20 @@ void Calculator::ClearButtonPressed()
         calcVal = 0.0;
         ui->Display->setText(QString::number(calcVal));
     }
+}
+
+void Calculator::MemoryAddButtonPressed()
+{
+    const QString displayVal = ui->Display->text();
+    memVal = displayVal.toDouble();
+}
+
+void Calculator::MemoryClearButtonPressed()
+{
+    memVal = 0.0;
+}
+
+void Calculator::MemoryGetButtonPressed()
+{
+    ui->Display->setText(QString::number(memVal));
 }

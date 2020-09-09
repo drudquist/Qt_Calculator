@@ -30,5 +30,8 @@ private slots:
     void EqualButtonPressed();
     void ChangeSignButtonPressed();
     void ClearButtonPressed();
+    void MemoryAddButtonPressed();
+    void MemoryClearButtonPressed();
+    void MemoryGetButtonPressed();
 };
 #endif // CALCULATOR_H
