@@ -60,6 +60,7 @@ void Calculator::ConnectButtons()
     ConnectOperatorButtons();
 
     connect(ui->Equal, SIGNAL(clicked()), this, SLOT(EqualButtonPressed()));
+    connect(ui->ChangeSign, SIGNAL(clicked()), this, SLOT(ChangeSignButtonPressed()));
 }
 
 void Calculator::NumPressed()
@@ -168,5 +169,18 @@ void Calculator::EqualButtonPressed()
     {
         QMessageBox::warning(this, "Warning", "Button: " + button->text() + " is not the equals button.");
         return;
+    }
+}
+
+void Calculator::ChangeSignButtonPressed()
+{
+    const QString displayVal = ui->Display->text();
+    QRegExp reg("[-]?[0-9.]*");
+
+    if(reg.exactMatch(displayVal))
+    {
+        double dblDisplayVal = displayVal.toDouble();
+        dblDisplayVal *= -1;
+        ui->Display->setText(QString::number(dblDisplayVal));
     }
 }

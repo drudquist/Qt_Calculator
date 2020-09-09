@@ -28,6 +28,6 @@ private slots:
     void NumPressed();
     void OperatorButtonPressed();
     void EqualButtonPressed();
-    //void ChangeSignButtonPressed();
+    void ChangeSignButtonPressed();
 };
 #endif // CALCULATOR_H
