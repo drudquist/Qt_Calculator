@@ -33,7 +33,6 @@ Calculator::Calculator(QWidget *parent)
     ui->DisplayPrevious->setText("");
 
     ui->Display->setValidator(new QRegExpValidator(QRegExp("[1-9]+,[1-9][0-9]*")));
-    ui->DisplayPrevious->setValidator(new QRegExpValidator(QRegExp("[1-9]+,[1-9][0-9]*")));
 
     ConnectButtons();
     InitializeTriggeredOperators();
