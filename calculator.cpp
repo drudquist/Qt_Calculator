@@ -207,6 +207,10 @@ void Calculator::EqualButtonPressed()
                 ui->DisplayPrevious->setText(prevDisplayVal + " " + displayVal);
                 calcVal = 0.0;
             }
+            else
+            {
+                ui->DisplayPrevious->setText("");
+            }
 
             ResetTriggeredOperators();
         }
