@@ -7,12 +7,17 @@
 
 namespace {
 
+struct OperatorInfo {
+    bool triggered{false};
+    std::function<double(double lhs, double rhs)> operation;
+};
+
 constexpr int numOfNumberButtons{10};
 
 double calcVal{0.0};
 double memVal{0.0};
 
-std::map<const QPushButton*, bool> triggeredOperators;
+std::map<const QPushButton*, OperatorInfo> operatorInfos;
 
 QPushButton* numButtons[numOfNumberButtons];
 }
@@ -72,17 +77,17 @@ void Calculator::ConnectButtons()
 
 void Calculator::InitializeTriggeredOperators()
 {
-    triggeredOperators.emplace(ui->Divide, false);
-    triggeredOperators.emplace(ui->Multiply, false);
-    triggeredOperators.emplace(ui->Add, false);
-    triggeredOperators.emplace(ui->Subtract, false);
+    operatorInfos.emplace(ui->Divide, OperatorInfo{false, [](const double lhs, const double rhs) { return lhs / rhs;} } );
+    operatorInfos.emplace(ui->Multiply, OperatorInfo{false, [](const double lhs, const double rhs) { return lhs * rhs; } } );
+    operatorInfos.emplace(ui->Add, OperatorInfo{false, [](const double lhs, const double rhs) { return lhs + rhs; } } );
+    operatorInfos.emplace(ui->Subtract, OperatorInfo{false, [](const double lhs, const double rhs) { return lhs - rhs; } } );
 }
 
 void Calculator::ResetTriggeredOperators()
 {
-    for(auto& triggeredOperator : triggeredOperators)
+    for(auto& triggeredOperator : operatorInfos)
     {
-        triggeredOperator.second = false;
+        triggeredOperator.second.triggered = false;
     }
 }
 
@@ -111,9 +116,9 @@ void Calculator::OperatorButtonPressed()
    const QPushButton* const button = static_cast<const QPushButton*>(sender());
 
    //C++17 if staement with initializer
-   if(auto iter = triggeredOperators.find(button); iter != triggeredOperators.end())
+   if(auto iter = operatorInfos.find(button); iter != operatorInfos.end())
    {
-       iter->second = true;
+       iter->second.triggered = true;
    }
    else
    {
@@ -130,7 +135,7 @@ void Calculator::OperatorButtonPressed()
 
 bool Calculator::DividingByZero(const double val)
 {
-    if(triggeredOperators.at(ui->Divide))
+    if(operatorInfos.at(ui->Divide).triggered)
     {
         return val == 0.0;
     }
@@ -140,9 +145,9 @@ bool Calculator::DividingByZero(const double val)
 
 bool Calculator::AnyOperatorTriggered()
 {
-    for(const auto& triggeredOperator : triggeredOperators)
+    for(const auto& triggeredOperator : operatorInfos)
     {
-        if(triggeredOperator.second)
+        if(triggeredOperator.second.triggered)
         {
             return true;
         }
@@ -159,24 +164,12 @@ double Calculator::CalculateValue(const double lhs, const double rhs)
         return lhs;
     }
 
-    if(triggeredOperators.at(ui->Divide))
+    for(const auto& operatorInfo : operatorInfos)
     {
-        return lhs / rhs;
-    }
-
-    if(triggeredOperators.at(ui->Multiply))
-    {
-        return lhs * rhs;
-    }
-
-    if(triggeredOperators.at(ui->Add))
-    {
-        return lhs + rhs;
-    }
-
-    if(triggeredOperators.at(ui->Subtract))
-    {
-        return lhs - rhs;
+        if(operatorInfo.second.triggered)
+        {
+            return operatorInfo.second.operation(lhs, rhs);
+        }
     }
 
     QMessageBox::warning(this, "Warning", "No operator set. returning value: " + QString::number(lhs));
