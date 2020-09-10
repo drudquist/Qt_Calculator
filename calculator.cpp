@@ -91,8 +91,15 @@ void Calculator::ResetTriggeredOperators()
     }
 }
 
+void Calculator::ClearStatusBar()
+{
+    ui->statusbar->showMessage("");
+}
+
 void Calculator::NumPressed()
 {
+    ClearStatusBar();
+
     const QPushButton* const button = static_cast<const QPushButton*>(sender());
     const QString buttonVal = button->text();
     const QString displayVal = ui->Display->text();
@@ -112,6 +119,7 @@ void Calculator::NumPressed()
 void Calculator::OperatorButtonPressed()
 {
     ResetTriggeredOperators();
+    ClearStatusBar();
 
    const QPushButton* const button = static_cast<const QPushButton*>(sender());
 
@@ -178,6 +186,8 @@ double Calculator::CalculateValue(const double lhs, const double rhs)
 
 void Calculator::EqualButtonPressed()
 {
+    ClearStatusBar();
+
     const QPushButton* const button = static_cast<const QPushButton*>(sender());
 
     if(button == ui->Equal)
@@ -213,6 +223,8 @@ void Calculator::EqualButtonPressed()
 
 void Calculator::ChangeSignButtonPressed()
 {
+    ClearStatusBar();
+
     const QString displayVal = ui->Display->text();
     QRegExp reg("[-]?[0-9.]*");
 
@@ -226,6 +238,8 @@ void Calculator::ChangeSignButtonPressed()
 
 void Calculator::ClearButtonPressed()
 {
+    ClearStatusBar();
+
     const QPushButton* const button = static_cast<const QPushButton*>(sender());
 
     if(button == ui->Clear)
@@ -240,14 +254,18 @@ void Calculator::MemoryAddButtonPressed()
 {
     const QString displayVal = ui->Display->text();
     memVal = displayVal.toDouble();
+
+    ui->statusbar->showMessage("Value: '" + displayVal + "' saved to memory." );
 }
 
 void Calculator::MemoryClearButtonPressed()
 {
     memVal = 0.0;
+    ui->statusbar->showMessage("Memory cleared.");
 }
 
 void Calculator::MemoryGetButtonPressed()
 {
     ui->Display->setText(QString::number(memVal));
+    ui->statusbar->showMessage("Memory returned value: '" + QString::number(memVal) + "'.");
 }

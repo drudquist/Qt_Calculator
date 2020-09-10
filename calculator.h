@@ -28,6 +28,7 @@ private:
     void ConnectButtons();
     void InitializeTriggeredOperators();
     void ResetTriggeredOperators();
+    void ClearStatusBar();
 
 private slots:
     void NumPressed();
