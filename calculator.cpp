@@ -78,7 +78,7 @@ void Calculator::InitializeTriggeredOperators()
     triggeredOperators.emplace(ui->Subtract, false);
 }
 
-void Calculator::ResetOperatorTriggered()
+void Calculator::ResetTriggeredOperators()
 {
     for(auto& triggeredOperator : triggeredOperators)
     {
@@ -106,7 +106,7 @@ void Calculator::NumPressed()
 
 void Calculator::OperatorButtonPressed()
 {
-    ResetOperatorTriggered();
+    ResetTriggeredOperators();
 
    const QPushButton* const button = static_cast<const QPushButton*>(sender());
 

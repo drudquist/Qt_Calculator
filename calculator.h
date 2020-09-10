@@ -24,7 +24,7 @@ private:
     void ConnectNumberButtons();
     void ConnectButtons();
     void InitializeTriggeredOperators();
-    void ResetOperatorTriggered();
+    void ResetTriggeredOperators();
 
 private slots:
     void NumPressed();
