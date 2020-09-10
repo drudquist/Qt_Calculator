@@ -18,11 +18,13 @@ public:
 private:
     Ui::Calculator *ui;
 
-    bool OperatorTriggered();
+    bool AnyOperatorTriggered();
 
     void ConnectOperatorButtons();
     void ConnectNumberButtons();
     void ConnectButtons();
+    void InitializeTriggeredOperators();
+    void ResetOperatorTriggered();
 
 private slots:
     void NumPressed();
