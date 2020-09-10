@@ -2,6 +2,7 @@
 #include "ui_calculator.h"
 
 #include <QMessageBox>
+#include <QRegExpValidator>
 
 #include <map>
 
@@ -30,6 +31,9 @@ Calculator::Calculator(QWidget *parent)
 
     ui->Display->setText(QString::number(calcVal));
     ui->DisplayPrevious->setText("");
+
+    ui->Display->setValidator(new QRegExpValidator(QRegExp("[1-9]+,[1-9][0-9]*")));
+    ui->DisplayPrevious->setValidator(new QRegExpValidator(QRegExp("[1-9]+,[1-9][0-9]*")));
 
     ConnectButtons();
     InitializeTriggeredOperators();
