@@ -3,17 +3,16 @@
 
 #include <QMessageBox>
 
-namespace {
+#include <map>
 
-bool divTriggered{false};
-bool multiTriggered{false};
-bool addTriggered{false};
-bool subTriggered{false};
+namespace {
 
 constexpr int numOfNumberButtons{10};
 
 double calcVal{0.0};
 double memVal{0.0};
+
+std::map<const QPushButton*, bool> triggeredOperators;
 
 QPushButton* numButtons[numOfNumberButtons];
 }
@@ -28,6 +27,7 @@ Calculator::Calculator(QWidget *parent)
     ui->DisplayPrevious->setText("");
 
     ConnectButtons();
+    InitializeTriggeredOperators();
 }
 
 Calculator::~Calculator()
@@ -70,6 +70,22 @@ void Calculator::ConnectButtons()
     connect(ui->MemGet, SIGNAL(clicked()), this, SLOT(MemoryGetButtonPressed()));
 }
 
+void Calculator::InitializeTriggeredOperators()
+{
+    triggeredOperators.emplace(ui->Divide, false);
+    triggeredOperators.emplace(ui->Multiply, false);
+    triggeredOperators.emplace(ui->Add, false);
+    triggeredOperators.emplace(ui->Subtract, false);
+}
+
+void Calculator::ResetOperatorTriggered()
+{
+    for(auto& triggeredOperator : triggeredOperators)
+    {
+        triggeredOperator.second = false;
+    }
+}
+
 void Calculator::NumPressed()
 {
     const QPushButton* const button = static_cast<const QPushButton*>(sender());
@@ -90,23 +106,14 @@ void Calculator::NumPressed()
 
 void Calculator::OperatorButtonPressed()
 {
+    ResetOperatorTriggered();
+
    const QPushButton* const button = static_cast<const QPushButton*>(sender());
 
-   if(button == ui->Divide)
+   //C++17 if staement with initializer
+   if(auto iter = triggeredOperators.find(button); iter != triggeredOperators.end())
    {
-       divTriggered = true;
-   }
-   else if(button == ui->Multiply)
-   {
-       multiTriggered = true;
-   }
-   else if(button == ui->Add)
-   {
-       addTriggered = true;
-   }
-   else if(button == ui->Subtract)
-   {
-       subTriggered = true;
+       iter->second = true;
    }
    else
    {
@@ -121,9 +128,17 @@ void Calculator::OperatorButtonPressed()
    ui->DisplayPrevious->setText(displayVal + " " + button->text());
 }
 
-bool Calculator::OperatorTriggered()
+bool Calculator::AnyOperatorTriggered()
 {
-    return divTriggered || multiTriggered || addTriggered || subTriggered;
+    for(const auto& triggeredOperator : triggeredOperators)
+    {
+        if(triggeredOperator.second)
+        {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void Calculator::EqualButtonPressed()
@@ -135,9 +150,9 @@ void Calculator::EqualButtonPressed()
         const QString displayVal = ui->Display->text();
         const double dblDisplayVal = displayVal.toDouble();
 
-        if(OperatorTriggered())
+        if(AnyOperatorTriggered())
         {
-            if(divTriggered)
+            if(triggeredOperators.at(ui->Divide))
             {
                 if(dblDisplayVal == 0.0)
                 {
@@ -151,11 +166,11 @@ void Calculator::EqualButtonPressed()
                     calcVal /= dblDisplayVal;
                 }
             }
-            else if(multiTriggered)
+            else if(triggeredOperators.at(ui->Multiply))
             {
                 calcVal *= dblDisplayVal;
             }
-            else if(addTriggered)
+            else if(triggeredOperators.at(ui->Add))
             {
                 calcVal += dblDisplayVal;
             }
