@@ -25,6 +25,7 @@ Calculator::Calculator(QWidget *parent)
     ui->setupUi(this);
 
     ui->Display->setText(QString::number(calcVal));
+    ui->DisplayPrevious->setText("");
 
     ConnectButtons();
 }
@@ -116,7 +117,8 @@ void Calculator::OperatorButtonPressed()
    const QString displayVal(ui->Display->text());
    calcVal = displayVal.toDouble();
 
-   ui->Display->setText("0");
+   ui->Display->setText("");
+   ui->DisplayPrevious->setText(displayVal + " " + button->text());
 }
 
 bool Calculator::OperatorTriggered()
@@ -163,6 +165,8 @@ void Calculator::EqualButtonPressed()
             }
 
             ui->Display->setText(QString::number(calcVal));
+            const QString prevDisplayVal = ui->DisplayPrevious->text();
+            ui->DisplayPrevious->setText(prevDisplayVal + " " + displayVal);
             calcVal = 0.0;
         }
         else
@@ -199,6 +203,7 @@ void Calculator::ClearButtonPressed()
     {
         calcVal = 0.0;
         ui->Display->setText(QString::number(calcVal));
+        ui->DisplayPrevious->setText("");
     }
 }
 
