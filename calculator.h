@@ -18,7 +18,10 @@ public:
 private:
     Ui::Calculator *ui;
 
+    bool DividingByZero(double val);
     bool AnyOperatorTriggered();
+
+    double CalculateValue(double lhs, double rhs);
 
     void ConnectOperatorButtons();
     void ConnectNumberButtons();

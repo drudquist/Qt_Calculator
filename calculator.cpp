@@ -128,6 +128,16 @@ void Calculator::OperatorButtonPressed()
    ui->DisplayPrevious->setText(displayVal + " " + button->text());
 }
 
+bool Calculator::DividingByZero(const double val)
+{
+    if(triggeredOperators.at(ui->Divide))
+    {
+        return val == 0.0;
+    }
+
+    return false;
+}
+
 bool Calculator::AnyOperatorTriggered()
 {
     for(const auto& triggeredOperator : triggeredOperators)
@@ -141,6 +151,38 @@ bool Calculator::AnyOperatorTriggered()
     return false;
 }
 
+double Calculator::CalculateValue(const double lhs, const double rhs)
+{
+    if(DividingByZero(rhs))
+    {
+        QMessageBox::warning(this, "Warning", "Cannot divide by zero");
+        return lhs;
+    }
+
+    if(triggeredOperators.at(ui->Divide))
+    {
+        return lhs / rhs;
+    }
+
+    if(triggeredOperators.at(ui->Multiply))
+    {
+        return lhs * rhs;
+    }
+
+    if(triggeredOperators.at(ui->Add))
+    {
+        return lhs + rhs;
+    }
+
+    if(triggeredOperators.at(ui->Subtract))
+    {
+        return lhs - rhs;
+    }
+
+    QMessageBox::warning(this, "Warning", "No operator set. returning value: " + QString::number(lhs));
+    return lhs;
+}
+
 void Calculator::EqualButtonPressed()
 {
     const QPushButton* const button = static_cast<const QPushButton*>(sender());
@@ -152,48 +194,27 @@ void Calculator::EqualButtonPressed()
 
         if(AnyOperatorTriggered())
         {
-            if(triggeredOperators.at(ui->Divide))
-            {
-                if(dblDisplayVal == 0.0)
-                {
-                    //set display to previous calculated value
-                    QMessageBox::warning(this, "Warning", "Cannot divide by zero");
-                    ui->Display->setText(QString::number(calcVal));
-                    return;
-                }
-                else
-                {
-                    calcVal /= dblDisplayVal;
-                }
-            }
-            else if(triggeredOperators.at(ui->Multiply))
-            {
-                calcVal *= dblDisplayVal;
-            }
-            else if(triggeredOperators.at(ui->Add))
-            {
-                calcVal += dblDisplayVal;
-            }
-            else
-            {
-                calcVal -= dblDisplayVal;
-            }
+            calcVal = CalculateValue(calcVal, dblDisplayVal);
 
             ui->Display->setText(QString::number(calcVal));
-            const QString prevDisplayVal = ui->DisplayPrevious->text();
-            ui->DisplayPrevious->setText(prevDisplayVal + " " + displayVal);
-            calcVal = 0.0;
+
+            if(!DividingByZero(dblDisplayVal))
+            {
+                const QString prevDisplayVal = ui->DisplayPrevious->text();
+                ui->DisplayPrevious->setText(prevDisplayVal + " " + displayVal);
+                calcVal = 0.0;
+            }
+
+            ResetTriggeredOperators();
         }
         else
         {
             QMessageBox::warning(this, "Warning", "Cannot calculate new value without an operator");
         }
-
     }
     else
     {
         QMessageBox::warning(this, "Warning", "Button: " + button->text() + " is not the equals button.");
-        return;
     }
 }
 
