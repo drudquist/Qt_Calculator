@@ -801,8 +801,14 @@ QPushButton:pressed{
          <pointsize>18</pointsize>
         </font>
        </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="acceptDrops">
+        <bool>false</bool>
        </property>
        <property name="text">
         <string/>
