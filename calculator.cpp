@@ -260,9 +260,13 @@ void Calculator::ClearButtonPressed()
 void Calculator::MemoryAddButtonPressed()
 {
     const QString displayVal = ui->Display->text();
-    memVal = displayVal.toDouble();
 
-    ui->statusbar->showMessage("Value: '" + displayVal + "' saved to memory." );
+    if(!displayVal.isEmpty())
+    {
+        memVal = displayVal.toDouble();
+
+        ui->statusbar->showMessage("Value: '" + displayVal + "' saved to memory." );
+    }
 }
 
 void Calculator::MemoryClearButtonPressed()
